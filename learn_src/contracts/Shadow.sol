@@ -18,7 +18,8 @@ contract Parent {
 contract Child is Parent {
     // This is the correct way to override inherited state variables.
     constructor() {
-        name = "Contract Child";
+        // write logic to set name to "Contract Child"
+        
     }
 
     // C.getName returns "Contract Child"
