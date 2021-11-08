@@ -2,12 +2,9 @@
 
 Unlike functions, state variables cannot be overridden by re-declaring it in the child contract.
 
-Let's learn how to correctly override inherited state variables.
+Let's write a parent contract first:
 
 ```
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.3;
-
 contract Parent {
     string public name = "Contract Parent";
 
@@ -15,19 +12,32 @@ contract Parent {
         return name;
     }
 }
+```
 
-// Shadowing is disallowed in Solidity 0.6
-// This will not compile
-// contract B is Parent {
-//     string public name = "Contract B";
-// }
+Let's learn how to correctly override inherited state variable `name`.
 
+## Overriding Inherited State Variables incorrectly
+
+- Shadowing is disallowed in Solidity 0.6. This will not compile
+
+```
+contract B is Parent {
+    string public name = "Contract B";
+}
+```
+
+## Overriding Inherited State Variables correctly
+
+- This is the correct way to override inherited state variables.
+
+```
 contract Child is Parent {
-    // This is the correct way to override inherited state variables.
     constructor() {
         name = "Contract Child";
     }
 
-    // C.getName returns "Contract Child"
 }
 ```
+
+Hit `Run` to test if it works.
+You should see `Contract Child` in the `name()` output.
