@@ -2,11 +2,21 @@
   "version": "1.0.0",
   "defaultFile": "contracts/Shadow.sol",
   "environment": "solidity",
-  "setupCommands": ["npm i", "npx hardhat compile"],
+  "setupCommands": [
+    "npx hardhat compile"
+  ],
   "compileCommand": "npx hardhat compile",
   "tests": [
-    { "itShould": "Compile", "command": "sh learn_tests/60.sh" },
-    { "itShould": "Call get", "command": "sh learn_tests/61.sh" }
+    {
+      "itShould": "Compile",
+      "command": "sh learn_tests/60.sh"
+    },
+    {
+      "itShould": "Call get",
+      "command": "sh learn_tests/61.sh"
+    }
   ],
-  "learnerAccessibleFileList": ["contracts/*"]
+  "learnerAccessibleFileList": [
+    "contracts/*"
+  ]
 }
